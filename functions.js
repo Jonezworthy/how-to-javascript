@@ -45,7 +45,7 @@ var incrementer = new Function('input', 'return input + 1');
 //console.log('incrementer 3:' + incrementer(3));
 
 
-////Immediately invoking function declaration
+////Immediately invoking function expression
 ////The purpose of these functions is to get code to run immediately, but encapsulated within a function scope
 (function () {
 
@@ -84,3 +84,18 @@ var incrementer = new Function('input', 'return input + 1');
 //    console.log('How many brackets?!');
 })();
 
+////functions can now have default values like PHP
+function exampleDefaults(a = 10, b = 15, c = process, d = (process.cpus ? true : false)){
+    console.log(a);
+    console.log(b);
+//    console.log(c);
+    console.log(d);
+}
+//exampleDefaults();
+
+function exampleSpreads(a, ...extras){
+    console.log(a);
+    console.log(extras);
+}
+
+//exampleSpreads('a', true, 'hello', false, []);
