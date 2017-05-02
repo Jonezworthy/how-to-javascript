@@ -46,6 +46,13 @@ if (process) {
 } else {
     ////False
 }
+////Negation
+if (!process){ //if process is falsy 
+    
+}
+if (process.env.OS !== 'Windows_NT'){ //if not value (negation)
+    
+}
 
 ////Switches are useful ways of making conditional statements easier to read - only if it is not nested!
 ////Scenario - say we have a string, and we want to condition on the value of the string
@@ -89,7 +96,9 @@ if (process.env.OS === 'Windows_NT'){
 
 ////Shorthand conditional declaration
 var OS = process.env.OS || 'Linux'; //This means, the value on the left of the pipes is the preffered value, but if it is FALSY, 'Linux' is used
-////This piping can be used as a coalesce type function
+////This piping can be used as a coalesce like function
 OS = process.env.OS || alternative || 'Linux';
 
 //// Refer to variables.js for more info
+
+

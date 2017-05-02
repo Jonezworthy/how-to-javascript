@@ -41,3 +41,13 @@ document.querySelectorAll('div'); //tag
 ////FORMS
 ////Forms can be easier to manipulate through the forms property in the document object
 ////If you have a form with an ID or a NAME on the form, it is available through the forms property
+////This way you don't need to put IDs on everything and use getElementById, you can just put names which don't affect global scope
+/*
+
+<form name="formName">
+    <input name="email" value="" />
+</form>
+ 
+ */
+document.forms;
+document.forms.formName.elements.email.value; 

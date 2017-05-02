@@ -67,19 +67,27 @@ var exampleFunctionObject = function (abc) {
 class exampleClass {
     constructor() {
         ////Properties can't be directly defined as part of the class
-//        console.log('Class construction');
+        console.log('Class construction');
         this.property = 'howdy';
     }
     method() {
         return 'classes are awesome';
     }
 }
+////Basic inheritance
+class otherClass extends exampleClass {
 
+    method(){
+        return super.method();
+    }
+};
 //var oExampleObject3 = new exampleClass();
 //oExampleObject3.method();
 //console.log(oExampleObject3.method());
 //console.log(oExampleObject3.property);
 
+//var oOtherClass = new otherClass();
+//console.log(oOtherClass.method());
 //////////////////////////////////////////////////
 //                                              //
 //                                              //
