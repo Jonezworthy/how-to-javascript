@@ -14,11 +14,7 @@
  +-------------------------------+
  */
 
-////EVERYTHING IS AN OBJECT
-////NOT EVERYTHING'S VALUE IS AN OBJECT
-
-////To clarify: everything is an object, everything has methods and properties associated with it
-////Datatypes still exist - values of the object do differ
+////Basic object definition
 
 ////Object Literal
 var oExampleObject = {
@@ -31,7 +27,7 @@ var oExampleObject = {
 //console.log(oExampleObject.property);
 //console.log(oExampleObject.method());
 
-////You can only use the "new" operator on true objects which are made by functions
+////You can only use the "new" operator on true objects which are made by functions/classes
 
 var exampleFunctionObject = function (abc) {
     ////this empty space part works like the constructor
@@ -143,3 +139,48 @@ oDate.valueOf();
 
 ////toISOString is useful if you need a date format that SQLServer likes
 //console.log(oDate.toISOString());
+
+////RegExp Object is useful if you need to variablise some regex
+////So typically, this is a normal regex to find the word hello at the start of a string
+var rFindHello = /^hello/i;
+////If you needed this but with a variable word instead, you use the RegExp object
+//// 2 args - 
+////1st -> your regex 
+////2nd -> Additional flags
+var word = 'hi';
+var rFindWord = new RegExp('^' + word, 'i');
+
+//console.log(rFindHello);
+//console.log(rFindWord);
+
+////To find out more on RegExp - see regex.js
+
+////These have little to no support in IE - should keep them in NodeJS really
+
+////Set object
+////a set is basically an UNIQUE array, but easier to manage
+////I will use array terminology to describe the methods
+var set = new Set();
+////To push you use the add method
+set.add('hello');
+set.add('abc123');
+set.add(101);
+
+//console.log(set);
+
+////To check to see if the value exists
+//console.log(set.has('hello'));
+////To splice out an element
+set.delete('abc123');
+
+//console.log(set);
+
+////To check the length, use the size property
+//console.log(set.size);
+
+////To loop over it, you need to use the of keyword
+for (let item of set){
+    console.log(item);
+}
+////WeakSet
+////WeakMap
