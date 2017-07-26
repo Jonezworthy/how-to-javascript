@@ -157,7 +157,7 @@ var rFindWord = new RegExp('^' + word, 'i');
 
 ////These have little to no support in IE - should keep them in NodeJS really
 
-////Set object
+////--- Set object
 ////a set is basically an UNIQUE array, but easier to manage
 ////I will use array terminology to describe the methods
 var set = new Set();
@@ -173,6 +173,8 @@ set.add(101);
 ////To splice out an element
 set.delete('abc123');
 
+//console.log(set.size); //Instead of length
+
 //console.log(set);
 
 ////To check the length, use the size property
@@ -180,7 +182,23 @@ set.delete('abc123');
 
 ////To loop over it, you need to use the of keyword
 for (let item of set){
-    console.log(item);
+//    console.log(item);
 }
-////WeakSet
-////WeakMap
+////--- Map object
+////a map is basically an object, but easier to manage
+var map = new Map();
+map.set('key', 'value');
+map.set('callback', ()=>{});
+
+//console.log(map.size); //Instead of length
+////Map loops
+////These loops make using Maps very attractive
+for (let [key, value] of map){
+//    console.log(key + ':' + value);
+}
+
+////--- WeakSet
+////TDLR: In essence, a weakset is a set that will only set objects
+////--- WeakMap
+////TDLR: In essence, a weakmap is a map that will only set objects
+////Feel free to read more about WeakSets/WeakMaps but they aren't hugely helpful in my opinion
