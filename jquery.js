@@ -61,8 +61,8 @@ $('#element').parentsUntil(selector, filter);
 $('#element').children(selector);
 $('#element').find(selector);
 $('#element').siblings(selector);
-$('#element').next(selector); 
-$('#element').nextAll(selector); 
+$('#element').next(selector);
+$('#element').nextAll(selector);
 $('#element').nextUntil(selector);
 $('#element').prev(selector);
 $('#element').prevAll(selector);
@@ -73,11 +73,35 @@ $('#element').prevUntil(selector);
 ////I could do a whole lecture on events, but I will try and keep this down to syntax only
 ////There are 2 common syntaxes for events
 ////For example, we will use the click event
-$('#element').click(function(){
+$('#element').click(function () {
     ////This way creates an event listener for each element selected
 });
-$('#element').on('click', function(){
+
+////.on can be bound on an element that doesn't exist yet
+$('#element').on('click', function () {
     ///This way creates 1 event listener that will handle all of the elements selected
 });
 ////Typically using .on is more accepted due to namespace considerations
+////--- Event Bubbling
+////Bubbling is an important concept in events
+////An example of bubbling is when you click on a child element, which triggers the click event on that element
+////But by clicking on that child element, you have also clicked on its parent, which fires the click event on that element
+////And by clicking on that parent, you have also clicked on the <html> element, which also fires the click event on the <html> element
+////Hopefully you understand that affect - it is called bubbling
+////I do not recommend you do this, 90% of cases you would get an issue with bubbling, you probably haven't designed your HTML correctly
+$('#element').on('click', function (event) {
+    event.stopPropagation();//This cancels the bubbling affect up the DOM tree 
+});
 
+////There are many other events you can bind - here's the most popular - there are many!
+////e.g submit
+////    focus
+////    blur
+////    dblclick
+////    keydown
+////    keyup
+////    keypress
+////    mousedown
+////    mouseup
+////    mouseover
+////    contextmenu
